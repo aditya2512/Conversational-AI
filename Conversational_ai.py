@@ -7,7 +7,7 @@
 # Install libraries required for web scraping, document loading, and agent creation (e.g., `requests`, `BeautifulSoup`, `langchain`, `langchain-experimental`, etc.).
 
 # %%
-%pip install requests beautifulsoup4 langchain langchain-experimental lxml unstructured
+pip install requests beautifulsoup4 langchain langchain-experimental lxml unstructured
 
 # %% [markdown]
 # ## Load data
@@ -19,7 +19,7 @@ from bs4 import BeautifulSoup
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 import os
 
-# Define website URLs
+# Define website URLs 
 website_urls = [
   "https://arxiv.org/pdf/2010.07487v3.pdf",
   "https://arxiv.org/pdf/2008.02275v3.pdf",
@@ -46,8 +46,7 @@ for url in website_urls:
         print(f"Error processing content from {url}: {e}")
 
 
-# Add a step for uploading PDF files here.
-# Once uploaded, you can load them using PyPDFLoader like this:
+# uploading PDF files here.
 # pdf_file_path = "path/to/your/uploaded/file.pdf" # Replace with the actual path
 # loader = PyPDFLoader(pdf_file_path)
 # pdf_documents = loader.load()
@@ -72,11 +71,6 @@ else:
 # ### Subtask:
 # Split the loaded content into smaller chunks and generate embeddings for each chunk.
 
-# %% [markdown]
-# **Reasoning**:
-# Split the text into manageable chunks for the embedding model and then generate embeddings for each chunk.
-
-# %%
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings # Example of another embedding model
 
